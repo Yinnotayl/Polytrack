@@ -17106,6 +17106,7 @@
             if ("m" === i) throw new TypeError("Private method is not writable");
             if ("a" === i && !r) throw new TypeError("Private accessor was defined without a setter");
             if ("function" == typeof t ? e !== t || !r : !t.has(e)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+            console.log(e, t, n, i, r);
             return "a" === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
         }, XP = function (e, t, n, i) {
             if ("a" === n && !i) throw new TypeError("Private accessor was defined without a getter");
@@ -17152,7 +17153,7 @@
                         XP(this, zP, "m", GP).call(this, "tracks/track10.track", e),
                         XP(this, zP, "m", GP).call(this, "tracks/track11.track", e),
                         XP(this, zP, "m", GP).call(this, "tracks/track12.track", e),
-                        // XP(this, zP, "m", GP).call(this, "tracks/track13.track", e),
+                        XP(this, zP, "m", GP).call(this, "tracks/track13.track", e),
                         XP(this, zP, "m", GP).call(this, "tracks/track14.track", e)
                     ]).then(e => {
                         qP(this, FP, e, "f");
@@ -17164,6 +17165,7 @@
                     XP(this, zP, "m", jP).call(this, e);
                 }));
             }
+            // MARK: - Checking track list lengths
             isCustomTracksEmpty() {
                 return 0 == XP(this, WP, "f").length;
             }
