@@ -2751,39 +2751,7 @@
             setRGB(e, t, n, i = bn.workingColorSpace) {
                 return this.r = e, this.g = t, this.b = n, bn.toWorkingColorSpace(this, i), this;
             }
-            setHSL(h, s, l, colorSpace = bn.workingColorSpace) {
-                // Normalize hue to [0, 1)
-                h = ((h % 1) + 1) % 1;
-                s = Math.max(0, Math.min(1, s));
-                l = Math.max(0, Math.min(1, l));
-
-                if (s === 0) {
-                    // Achromatic (gray)
-                    this.r = this.g = this.b = l;
-                } else {
-                    const hueToRGB = (p, q, t) => {
-                        if (t < 0) t += 1;
-                        if (t > 1) t -= 1;
-                        if (t < 1 / 6) return p + (q - p) * 6 * t;
-                        if (t < 1 / 2) return q;
-                        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-                        return p;
-                    };
-
-                    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-                    const p = 2 * l - q;
-
-                    this.r = hueToRGB(p, q, h + 1 / 3);
-                    this.g = hueToRGB(p, q, h);
-                    this.b = hueToRGB(p, q, h - 1 / 3);
-                }
-
-                // Convert to working color space if needed
-                bn.toWorkingColorSpace(this, colorSpace);
-
-                return this;
-            }
-
+            setHSL(e, t, n, i = bn.workingColorSpace) { if (e = (e % 1 + 1) % 1, t = Math.max(0, Math.min(1, t)), n = Math.max(0, Math.min(1, n)), 0 === t) this.r = this.g = this.b = n; else { const i = n <= 0.5 ? n * (1 + t) : n + t - n * t, r = 2 * n - i; this.r = (e + 0.3333333333333333 < 0 && (e + 0.3333333333333333 += 1), e + 0.3333333333333333 > 1 && (e + 0.3333333333333333 -= 1), e + 0.3333333333333333 < 0.16666666666666666 ? r + 6 * (i - r) * (e + 0.3333333333333333) : e + 0.3333333333333333 < 0.5 ? i : e + 0.3333333333333333 < 0.6666666666666666 ? r + 6 * (i - r) * (0.6666666666666666 - (e + 0.3333333333333333)) : r), this.g = (e < 0 && (e += 1), e > 1 && (e -= 1), e < 0.16666666666666666 ? r + 6 * (i - r) * e : e < 0.5 ? i : e < 0.6666666666666666 ? r + 6 * (i - r) * (0.6666666666666666 - e) : r), this.b = (e - 0.3333333333333333 < 0 && (e - 0.3333333333333333 += 1), e - 0.3333333333333333 > 1 && (e - 0.3333333333333333 -= 1), e - 0.3333333333333333 < 0.16666666666666666 ? r + 6 * (i - r) * (e - 0.3333333333333333) : e - 0.3333333333333333 < 0.5 ? i : e - 0.3333333333333333 < 0.6666666666666666 ? r + 6 * (i - r) * (0.6666666666666666 - (e - 0.3333333333333333)) : r); } return bn.toWorkingColorSpace(this, i), this; }
             setStyle(e, t = At) {
                 function n(t) {
                     undefined !== t && parseFloat(t) < 1 && console.warn("THREE.Color: Alpha component of " + e + " will be ignored.");
