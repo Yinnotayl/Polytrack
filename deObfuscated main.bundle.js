@@ -17106,7 +17106,6 @@
             if ("m" === i) throw new TypeError("Private method is not writable");
             if ("a" === i && !r) throw new TypeError("Private accessor was defined without a setter");
             if ("function" == typeof t ? e !== t || !r : !t.has(e)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-            console.log(e, t, n, i, r);
             return "a" === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
         }, XP = function (e, t, n, i) {
             if ("a" === n && !i) throw new TypeError("Private accessor was defined without a getter");
@@ -17176,6 +17175,7 @@
                 XP(this, FP, "f").forEach(t => {
                     e(t.id, t.name, t.trackData, t.thumbnail);
                 });
+                console.log(XP(this, FP, "f"));
             }
             forEachCustom(e) {
                 XP(this, WP, "f").forEach(t => {
