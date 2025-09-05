@@ -2751,7 +2751,48 @@
             setRGB(e, t, n, i = bn.workingColorSpace) {
                 return this.r = e, this.g = t, this.b = n, bn.toWorkingColorSpace(this, i), this;
             }
-            setHSL(e, t, n, i = bn.workingColorSpace) { e = (e % 1 + 1) % 1; if (e, t = Math.max(0, Math.min(1, t)), n = Math.max(0, Math.min(1, n)), 0 === t) this.r = this.g = this.b = n; else { const i = n <= 0.5 ? n * (1 + t) : n + t - n * t, r = 2 * n - i; this.r = (e + 0.3333333333333333 < 0 && (e + 0.3333333333333333 += 1), e + 0.3333333333333333 > 1 && (e + 0.3333333333333333 -= 1), e + 0.3333333333333333 < 0.16666666666666666 ? r + 6 * (i - r) * (e + 0.3333333333333333) : e + 0.3333333333333333 < 0.5 ? i : e + 0.3333333333333333 < 0.6666666666666666 ? r + 6 * (i - r) * (0.6666666666666666 - (e + 0.3333333333333333)) : r), this.g = (e < 0 && (e += 1), e > 1 && (e -= 1), e < 0.16666666666666666 ? r + 6 * (i - r) * e : e < 0.5 ? i : e < 0.6666666666666666 ? r + 6 * (i - r) * (0.6666666666666666 - e) : r), this.b = (e - 0.3333333333333333 < 0 && (e - 0.3333333333333333 += 1), e - 0.3333333333333333 > 1 && (e - 0.3333333333333333 -= 1), e - 0.3333333333333333 < 0.16666666666666666 ? r + 6 * (i - r) * (e - 0.3333333333333333) : e - 0.3333333333333333 < 0.5 ? i : e - 0.3333333333333333 < 0.6666666666666666 ? r + 6 * (i - r) * (0.6666666666666666 - (e - 0.3333333333333333)) : r); } return bn.toWorkingColorSpace(this, i), this; }
+            setHSL(e, t, n, i = bn.workingColorSpace) {
+                // Normalize e
+                e = (e % 1 + 1) % 1;
+
+                // Clamp t and n values to the range [0, 1]
+                t = Math.max(0, Math.min(1, t));
+                n = Math.max(0, Math.min(1, n));
+
+                // If t is 0, set r, g, b to n (greyscale)
+                if (t === 0) {
+                    this.r = this.g = this.b = n;
+                } else {
+                    const i = n <= 0.5 ? n * (1 + t) : n + t - n * t;
+                    const r = 2 * n - i;
+
+                    // Calculate r, g, b based on HSL to RGB conversion
+                    this.r = this._getColorComponent(e + 0.3333333333333333, r, i, n);
+                    this.g = this._getColorComponent(e, r, i, n);
+                    this.b = this._getColorComponent(e - 0.3333333333333333, r, i, n);
+                }
+
+                // Convert to working color space if needed
+                return bn.toWorkingColorSpace(this, i), this;
+            }
+
+            // Helper function for calculating RGB components
+            _getColorComponent(e, r, i, n) {
+                // Normalize e to the range [0, 1]
+                if (e < 0) e += 1;
+                if (e > 1) e -= 1;
+
+                // Apply HSL to RGB conversion logic
+                if (e < 0.16666666666666666) {
+                    return r + 6 * (i - r) * e;
+                } else if (e < 0.5) {
+                    return i;
+                } else if (e < 0.6666666666666666) {
+                    return r + 6 * (i - r) * (0.6666666666666666 - e);
+                } else {
+                    return r;
+                }
+            }
             setStyle(e, t = At) {
                 function n(t) {
                     undefined !== t && parseFloat(t) < 1 && console.warn("THREE.Color: Alpha component of " + e + " will be ignored.");
