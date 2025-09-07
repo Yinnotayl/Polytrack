@@ -41,6 +41,9 @@ const YP = class {
             .then(arr => {
                 qP(this, FP, arr, "f");
             });
+            .catch(error => {
+                alert("Error loading tracksList.json: " + error.message);
+            });
     }
     refreshCustomTracks() {
         const e = XP(this, HP, "f").getAllTrackNames();
