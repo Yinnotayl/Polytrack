@@ -43,6 +43,7 @@ const YP = class {
             ]).then(arr => {
                 qP(this, FP, arr, "f");
             });
+        /*
         fetch('/tracks/tracksList.json') // Fetches list of tracks that can be loaded
             .then(r => r.json())
             .then(list => Promise.all(list.map(f => XP(this, zP, "m", GP).call(this, f, e))))
