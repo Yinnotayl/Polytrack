@@ -11,7 +11,6 @@
 const YP = class {
     constructor(e, t, n) {
         zP.add(this), FP.set(this, []), WP.set(this, []), HP.set(this, void 0), VP.set(this, void 0), qP(this, HP, n, "f"), qP(this, VP, t, "f"),
-            /*
             Promise.all([
                 XP(this, zP, "m", GP).call(this, "tracks/track1.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/track2.track", e),
@@ -30,17 +29,27 @@ const YP = class {
                 XP(this, zP, "m", GP).call(this, "tracks/bismuthMines.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/jadeMountain.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/quartzCity.track", e),
-                XP(this, zP, "m", GP).call(this, "tracks/sludgeWorks.track", e)
-            ]).then((e => {
-                qP(this, FP, e, "f")
-            }))
-            */
-            fetch('/tracks/tracksList.json') // Fetches list of tracks that can be loaded
+                XP(this, zP, "m", GP).call(this, "tracks/sludgeWorks.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/arrgh.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/grr.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/impossibleTrack.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/longLine.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/LongRun.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/smallLoop.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/TestSpeedsd.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/thelmpossibleSlidePro.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/theRollercoaster.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/TheTrackQLD2Lap.track", e)
+            ]).then(arr => {
+                qP(this, FP, arr, "f");
+            });
+        fetch('/tracks/tracksList.json') // Fetches list of tracks that can be loaded
             .then(r => r.json())
             .then(list => Promise.all(list.map(f => XP(this, zP, "m", GP).call(this, f, e))))
             .then(arr => {
                 qP(this, FP, arr, "f");
             });
+        */
     }
     refreshCustomTracks() {
         const e = XP(this, HP, "f").getAllTrackNames();
