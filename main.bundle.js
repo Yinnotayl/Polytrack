@@ -33,6 +33,7 @@ const YP = class {
                 XP(this, zP, "m", GP).call(this, "tracks/arrgh.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/grr.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/wallClimb.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/wallClimb2.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/track10Modded.track", e)/*,
                 XP(this, zP, "m", GP).call(this, "tracks/impossibleTrack.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/longLine.track", e),
