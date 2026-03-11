@@ -60,7 +60,8 @@ const YP = class {
                 XP(this, zP, "m", GP).call(this, "tracks/Fun.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/FunLoops.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/Hi.track", e),
-                XP(this, zP, "m", GP).call(this, "tracks/Upsidedown.track", e)/*,
+                XP(this, zP, "m", GP).call(this, "tracks/Upsidedown.track", e),
+                XP(this, zP, "m", GP).call(this, "tracks/Formula1_3.track.track", e)/*,
                 XP(this, zP, "m", GP).call(this, "tracks/thelmpossibleSlidePro.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/TheTrackQLD2Lap.track", e),
                 XP(this, zP, "m", GP).call(this, "tracks/theRollercoaster.track", e)*/
