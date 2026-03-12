@@ -72,4 +72,4 @@ Building tracks helps you understand how obstacles affect movement and momentum.
 
 
 ## Conclusion
-Visors on, hands gripping the stering wheel and pedal to the metal! - Not literally but control your own car and do stunning maneuvers, all in your own browser online, at [Modded Polytrack](https://yinnotayl.github.io/Polytrack)!
+Visors on, hands gripping the stering wheel and pedal to the metal! - Not literally but control your own car and do stunning manoeuvres, all in your own browser online, at [Modded Polytrack](https://yinnotayl.github.io/Polytrack)!
