@@ -206,7 +206,15 @@ const lazyImages = [
     "verified.svg"
 ];
 criticalImages.forEach(src => e.preloadImage("images/" + src, "high"));
-requestIdleCallback(() => {
+const requestIdle = window.requestIdleCallback || function (cb) {
+    return setTimeout(() => {
+        cb({
+            didTimeout: false,
+            timeRemaining: () => 0
+        });
+    }, 1);
+};
+requestIdle(() => {
     lazyImages.forEach(src => e.preloadImage("images/" + src, "low"));
 });
         const t = new sR, n = new iL, i = new hd(e); i.load("music", ["audio/music.mp3", "audio/music.flac"]), i.load("click", ["audio/click.flac"]), i.load("engine", ["audio/engine.flac"]), i.load("suspension", ["audio/suspension.flac"]), i.load("tires", ["audio/tires.flac"]), i.load("collision", ["audio/collision.flac"]), i.load("skidding", ["audio/skidding.flac"]), i.load("editor_edit", ["audio/editor_edit.flac"]), i.load("checkpoint", ["audio/checkpoint.flac"]), i.load("finish", ["audio/checkpoint.flac"]),
