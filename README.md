@@ -17,6 +17,8 @@ This version of PolyTrack is modded, with no gameplay changes but an addition of
 
 [Modding by Yinnotayl](https://yinnotayl.github.io)
 
+Besides adding features to the base game, I will also attempt to fix bugs, optimise code and improve user experience behind the scenes! Working with the bundled/obfuscated JavaScript is still sort of manageable but conditions would be better if I have the source code. If anyone knows, please share with me (with permission of course)
+
 ## Gameplay Mechanics
 
 The objective is simple: complete each track as quickly as possible. The game features 13 unique tracks filled with loops, jumps, and technical sections designed to challenge your driving skills.
